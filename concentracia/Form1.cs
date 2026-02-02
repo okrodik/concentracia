@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace concentracia
 {
@@ -14,14 +15,20 @@ namespace concentracia
     {
         Panel panel1 = new Panel();
         PictureBox[,] pictureBoxes = new PictureBox[10, 10];
-        int width = 15;
-        int height = 3;
+        int width = 12;
+        int height = 6;
+
+        int[] photoMassiv = new int[2];
+
+        Random random = new Random();
 
         public Form1()
         {
             InitializeComponent();
             settingWindow();
             createPole();
+            addPhoto();
+            scrit();
         }
 
         private void settingWindow()
@@ -45,8 +52,8 @@ namespace concentracia
             {
                 for (int j = 0; j < height; j++)
                 {
-                    int sizeX = 150;
-                    int sizeY = 80;
+                    int sizeX = 60;
+                    int sizeY = 60;
 
                     pictureBoxes[i, j] = new PictureBox();
                     pictureBoxes[i, j].Location = new Point(30 + (sizeX + 10) * i, 50 + (sizeY + 10) * j);
@@ -54,8 +61,64 @@ namespace concentracia
                     pictureBoxes[i, j].Name = i.ToString() + j.ToString();
                     pictureBoxes[i,j].BackColor = Color.LightCyan;
                     pictureBoxes[i, j].BorderStyle = BorderStyle.Fixed3D;
+                    pictureBoxes[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
 
                     panel1.Controls.Add(pictureBoxes[i,j]);
+                }
+            }
+        }
+
+        private void addPhoto()
+        {
+            int x= 0;
+            int xx = 0;
+            int yyy = 1;
+            int delenie = (width * height) / 2;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            photoMassiv = new int[width * height];
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    photoMassiv[xx] = yyy;
+                    yyy += 1;
+                    xx += 1;
+
+                    if (yyy == delenie + 1)
+                    {
+                        yyy = 1;
+                    }        
+                }
+            }
+
+            for (int a = photoMassiv.Length - 1; a >= 0; a--)
+            {
+                int b = random.Next(a);
+                int c = photoMassiv[a];
+                photoMassiv[a] = photoMassiv[b];
+                photoMassiv[b] = c;
+            }
+
+            int qwer = 0;
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    pictureBoxes[i, j].Image = Image.FromFile($"C:\\Users\\student1\\Desktop\\Новая папка\\{photoMassiv[qwer]}.jpg");
+                    qwer += 1;
+                }
+            }
+        }
+
+        private void scrit()
+        {
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    pictureBoxes[i, j].BackColor = Color.Red;
+
                 }
             }
         }
