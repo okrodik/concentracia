@@ -5,47 +5,6 @@ VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "concentracia", "concentracia\concentracia.csproj", "{C91F08E6-11A0-4319-8275-8E8245806A62}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\Новая папка\1.jpg = ..\..\..\Desktop\Новая папка\1.jpg
-		..\..\..\Desktop\Новая папка\10.jpg = ..\..\..\Desktop\Новая папка\10.jpg
-		..\..\..\Desktop\Новая папка\11.jpg = ..\..\..\Desktop\Новая папка\11.jpg
-		..\..\..\Desktop\Новая папка\12.jpg = ..\..\..\Desktop\Новая папка\12.jpg
-		..\..\..\Desktop\Новая папка\13.jpg = ..\..\..\Desktop\Новая папка\13.jpg
-		..\..\..\Desktop\Новая папка\14.jpg = ..\..\..\Desktop\Новая папка\14.jpg
-		..\..\..\Desktop\Новая папка\15.jpg = ..\..\..\Desktop\Новая папка\15.jpg
-		..\..\..\Desktop\Новая папка\16.jpg = ..\..\..\Desktop\Новая папка\16.jpg
-		..\..\..\Desktop\Новая папка\17.jpg = ..\..\..\Desktop\Новая папка\17.jpg
-		..\..\..\Desktop\Новая папка\18.jpg = ..\..\..\Desktop\Новая папка\18.jpg
-		..\..\..\Desktop\Новая папка\19.jpg = ..\..\..\Desktop\Новая папка\19.jpg
-		..\..\..\Desktop\Новая папка\2.jpg = ..\..\..\Desktop\Новая папка\2.jpg
-		..\..\..\Desktop\Новая папка\20.jpg = ..\..\..\Desktop\Новая папка\20.jpg
-		..\..\..\Desktop\Новая папка\21.jpg = ..\..\..\Desktop\Новая папка\21.jpg
-		..\..\..\Desktop\Новая папка\22.jpg = ..\..\..\Desktop\Новая папка\22.jpg
-		..\..\..\Desktop\Новая папка\23.jpg = ..\..\..\Desktop\Новая папка\23.jpg
-		..\..\..\Desktop\Новая папка\24.jpg = ..\..\..\Desktop\Новая папка\24.jpg
-		..\..\..\Desktop\Новая папка\25.jpg = ..\..\..\Desktop\Новая папка\25.jpg
-		..\..\..\Desktop\Новая папка\26.jpg = ..\..\..\Desktop\Новая папка\26.jpg
-		..\..\..\Desktop\Новая папка\27.jpg = ..\..\..\Desktop\Новая папка\27.jpg
-		..\..\..\Desktop\Новая папка\28.jpg = ..\..\..\Desktop\Новая папка\28.jpg
-		..\..\..\Desktop\Новая папка\29.jpg = ..\..\..\Desktop\Новая папка\29.jpg
-		..\..\..\Desktop\Новая папка\3.jpg = ..\..\..\Desktop\Новая папка\3.jpg
-		..\..\..\Desktop\Новая папка\30.jpg = ..\..\..\Desktop\Новая папка\30.jpg
-		..\..\..\Desktop\Новая папка\31.jpg = ..\..\..\Desktop\Новая папка\31.jpg
-		..\..\..\Desktop\Новая папка\32.jpg = ..\..\..\Desktop\Новая папка\32.jpg
-		..\..\..\Desktop\Новая папка\33.jpg = ..\..\..\Desktop\Новая папка\33.jpg
-		..\..\..\Desktop\Новая папка\34.jpg = ..\..\..\Desktop\Новая папка\34.jpg
-		..\..\..\Desktop\Новая папка\35.jpg = ..\..\..\Desktop\Новая папка\35.jpg
-		..\..\..\Desktop\Новая папка\36.jpg = ..\..\..\Desktop\Новая папка\36.jpg
-		..\..\..\Desktop\Новая папка\4.jpg = ..\..\..\Desktop\Новая папка\4.jpg
-		..\..\..\Desktop\Новая папка\5.jpg = ..\..\..\Desktop\Новая папка\5.jpg
-		..\..\..\Desktop\Новая папка\6.jpg = ..\..\..\Desktop\Новая папка\6.jpg
-		..\..\..\Desktop\Новая папка\7.jpg = ..\..\..\Desktop\Новая папка\7.jpg
-		..\..\..\Desktop\Новая папка\8.jpg = ..\..\..\Desktop\Новая папка\8.jpg
-		..\..\..\Desktop\Новая папка\9.jpg = ..\..\..\Desktop\Новая папка\9.jpg
-		..\..\..\Downloads\bc.png = ..\..\..\Downloads\bc.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

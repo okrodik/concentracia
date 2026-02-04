@@ -1,4 +1,5 @@
-﻿using System;
+﻿using concentracia.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,8 @@ namespace concentracia
     {
         Panel panel1 = new Panel();
         PictureBox[,] pictureBoxes = new PictureBox[10, 10];
-        int width = 6;
-        int height = 6;
+        int width = 4;
+        int height = 4;
         int rachet = 0;
 
         int[] photoMassiv = new int[2];
@@ -24,13 +25,24 @@ namespace concentracia
 
         Random random = new Random();
 
+        int chetWin = 0;
+        int delenie = 0;
+
         public Form1()
         {
             InitializeComponent();
+
+            toolStripComboBox1.SelectedIndex = 0;
+
+            Activate();
+        }
+
+        private void Activate()
+        {
             settingWindow();
             createPole();
             addPhoto();
-            //scrit();
+            scrit();
         }
 
         private void settingWindow()
@@ -63,7 +75,7 @@ namespace concentracia
                     pictureBoxes[i, j].Location = new Point(30 + (sizeX + 10) * j, 50 + (sizeY + 10) * i);
                     pictureBoxes[i, j].Size = new Size(sizeX, sizeY);
                     pictureBoxes[i, j].Name = i.ToString() + j.ToString();
-                    pictureBoxes[i,j].BackColor = Color.LightCyan;
+                    pictureBoxes[i, j].BackColor = Color.LightCyan;
                     pictureBoxes[i, j].BorderStyle = BorderStyle.Fixed3D;
                     pictureBoxes[i, j].SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBoxes[i, j].Click += new EventHandler(clickPicture);
@@ -79,28 +91,28 @@ namespace concentracia
 
         private void addPhoto()
         {
-            int xx = 0;
-            int yyy = 1;
-            int delenie = (width * height) / 2;
+            int xx = 0; //по очереди проходит
+            int yyy = 1; //цифры для массива
+            delenie = (width * height) / 2; //половина
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-            photoMassiv = new int[width * height];
+            photoMassiv = new int[width * height]; //новый массив
 
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    photoMassiv[xx] = yyy;
-                    yyy += 1;
+                    photoMassiv[xx] = yyy; //доабвляем числа
+                    yyy += 1; //доавбление одного
                     xx += 1;
 
-                    if (yyy == delenie + 1)
+                    if (yyy == delenie + 1) //если прошла половина то это
                     {
                         yyy = 1;
                     }        
                 }
             }
 
-            for (int a = photoMassiv.Length - 1; a >= 0; a--)
+            for (int a = photoMassiv.Length - 1; a >= 0; a--) //рандом
             {
                 int b = random.Next(a);
                 int c = photoMassiv[a];
@@ -108,13 +120,16 @@ namespace concentracia
                 photoMassiv[b] = c;
             }
 
-            int qwer = 0;
-            for (int i = 0; i < width; i++)
+
+            int chet = 0;
+
+            for (int i = 0; i < height; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < width; j++)
                 {
-                    pictureBoxes[i, j].Image = Image.FromFile($"C:\\Users\\student1\\Desktop\\Новая папка\\{photoMassiv[qwer]}.jpg");
-                    qwer += 1;
+
+                    pictureBoxes[i, j].Tag = photoMassiv[chet];
+                    chet += 1;
                 }
             }
         }
@@ -125,7 +140,7 @@ namespace concentracia
             {
                 for (int j = 0; j < height; j++)
                 {
-                    pictureBoxes[i, j].Image = Image.FromFile("C:\\Users\\student1\\Downloads\\bc.png");
+                    pictureBoxes[i, j].Image = Resources.bc;
 
                 }
             }
@@ -142,28 +157,76 @@ namespace concentracia
         {
             
             var pictureBox = sender as PictureBox;
-            pictureBox.Image = Image.FromFile($"C:\\Users\\student1\\Desktop\\Новая папка\\{photoMassiv[Convert.ToInt32(pictureBox.Tag)]}.jpg");
+            string resourceName = pictureBox.Tag.ToString();
 
+            pictureBox.Image = Properties.Resources.ResourceManager.GetObject(resourceName) as Image;
             para[rachet++] = (pictureBox);
+            pictureBox.Enabled = false;
 
             if (rachet >= 2)
             {
                 int index1 = Convert.ToInt32(para[0].Tag);
                 int index2 = Convert.ToInt32(para[1].Tag);
 
-                photoMassiv 
 
-                if (index1 == index2)
-                    MessageBox.Show("Изображения совпадают!");
+                if (index1 != index2)
+                {
+                    MessageBox.Show("Не совпадают!!!!!!!!!!!!!!!");
+                    para[0].Image = Resources.bc;
+                    para[1].Image = Resources.bc;
+                    para[0].Enabled = true;
+                    para[1].Enabled = true;
+                }
+
                 else
-                    MessageBox.Show("различны.");
-                    //para[0].Image = Image.FromFile($"C:\\Users\\student1\\Desktop\\Новая папка\\{photoMassiv[Convert.ToInt32(para[0].Tag)]}.jpg");
-                    //para[1].Image = Image.FromFile($"C:\\Users\\student1\\Desktop\\Новая папка\\{photoMassiv[Convert.ToInt32(para[1].Tag)]}.jpg");
-
+                {
+                    MessageBox.Show("Совпадают.");
+                    checkWin();
+                    pictureBox.Enabled = false;
+                }
+                  
                 Array.Clear(para, 0, para.Length);
                 rachet = 0;
+
+                
             }
         }
+        private void checkWin()
+        {
+            chetWin++;
+            if (chetWin == delenie)
+            {
+                MessageBox.Show("ТЫ победил");
+                Activate();
+            }
 
+        }
+
+        private void рестартToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Activate();
+        }
+
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (toolStripComboBox1.SelectedIndex == 0)
+            {
+                width = 4;
+                height = 4;
+            }
+            if (toolStripComboBox1.SelectedIndex == 1)
+            {
+                width = 6;
+                height = 6;
+            }
+            if (toolStripComboBox1.SelectedIndex == 2)
+            {
+                width = 8;
+                height = 8;
+            }
+
+            Activate();
+        }
     }
 }
